@@ -73,8 +73,12 @@ button:focus-visible {
   text-align: start;
   margin-top: 50px;
 }
-.navbar-fild
+/* .navbar-fild
 {
   background-color: red;
   width:100%;
+} */
+.accordion-button::after
+{
+  filter: invert(2);
 }

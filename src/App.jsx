@@ -39,7 +39,7 @@ const [mode, setmode] = useState('light')
     if(mode==='light')
       {
         setmode('dark')
-        document.body.style.background = 'black'
+        document.body.style.background = '#36374c'
         showAlert("dark mode is inable","success")
       
       }
@@ -70,7 +70,8 @@ const [mode, setmode] = useState('light')
       element: <>
       
       <Navbar title="My website"  mode={mode} toggleMode={toggleMode}/>
-      <About/>
+      <Alert alert={alert}/>
+      <About mode={mode}/>
 
       </>
     }

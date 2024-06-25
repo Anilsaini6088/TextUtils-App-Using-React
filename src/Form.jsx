@@ -43,17 +43,17 @@ export default function userForm(props) {
   return (
     <>
     
-<div className="mb-3 formfield my-5" style={{color: props.mode==='dark'?'white':'black'}}>
+<div className="mb-3 formfield my-app" style={{color: props.mode==='dark'?'white':'black'}}>
   <h2>{props.heading} </h2>
-  <textarea className="form-control" style={{backgroundColor: props.mode==='dark'?'gray':'white',color:props.mode==='dark'?'white':'black'}}  onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8" value={text}></textarea>
+  <textarea className="form-control" style={{backgroundColor: props.mode==='dark'?'#4d4960':'white',color:props.mode==='dark'?'white':'black'}}  onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8" value={text}></textarea>
   <button className="btn btn-primary mx-2 my-2"  onClick={handleUpClick}>Convert to UpperCase</button>
-  <button className="btn btn-primary mx-2"  onClick={handleUpClick2}>Convert to LowerCase</button>
-  <button className="btn btn-primary mx-2"  onClick={handleClearText}>Clear text</button>
-  <button className="btn btn-primary mx-2"  onClick={handleSentenceText}>Sentence Case</button>
+  <button className="btn btn-primary mx-2  my-2"  onClick={handleUpClick2}>Convert to LowerCase</button>
+  <button className="btn btn-primary mx-2  my-2"  onClick={handleClearText}>Clear text</button>
+  <button className="btn btn-primary mx-2  my-2"  onClick={handleSentenceText}>Sentence Case</button>
    <div className="container my-3">
    <h3>Text Summary</h3>
-   <p>{text.split(" ").length} words and {text.length} characters</p>
-   <p> you read this text in {text.split(" ").length * 0.008} minutes</p>
+   <p>{text.split(/\s+/).filter((element)=>{ return  element.length != 0}).length} words and {text.length} characters</p>
+   <p> you read this text in {text.split(" ").filter((element)=>{ return  element.length != 0}).length * 0.008} minutes</p>
    <h2>preview</h2>
    <p>{text.length>0?text:'please enter somthing in the field'}</p>
    </div>

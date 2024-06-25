@@ -1,31 +1,36 @@
 import React, {useState} from 'react'
 
-export default function about() {
-    const [myStyle,setMyStyle] = useState({
-        color:"white",
-        background:"black"
-    });
+export default function about(props) {
+    // const [myStyle,setMyStyle] = useState({
+    //     color:"white",
+    //     background:"black"
+    // });
     
-const [btnText, setbtnText] = useState("Enable Light mode")
+// const [btnText, setbtnText] = useState("Enable Light mode")
 
-const toggleState = ()=>{
+// const toggleState = ()=>{
     
-    if(myStyle.color == "white")
-        {
-            setMyStyle({
-                color:"black",
-                background:"white"
-            })
-          setbtnText("Enable dark mode")
-        }
-        else
-        {
-            setMyStyle({
-                color:"white",
-                background:"black"
-            })
-            setbtnText("Enable light mode")
-        }
+//     if(myStyle.color == "white")
+//         {
+//             setMyStyle({
+//                 color:"black",
+//                 background:"white"
+//             })
+//           setbtnText("Enable dark mode")
+//         }
+//         else
+//         {
+//             setMyStyle({
+//                 color:"white",
+//                 background:"black"
+//             })
+//             setbtnText("Enable light mode")
+//         }
+// }
+
+let myStyle = {
+  color: props.mode === 'dark'?'white':'black',
+  background:  props.mode === 'dark'?'#36384a':'white',
 }
 
   return (
@@ -39,7 +44,7 @@ const toggleState = ()=>{
       </button>
     </h2>
     <div id="collapseOne" style={myStyle} className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-      <div className="accordion-body">
+      <div className="accordion-body" style={myStyle}>
         <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
       </div>
     </div>
@@ -70,7 +75,7 @@ const toggleState = ()=>{
   </div>
 </div>
 <div className="container my-4">
-<button type="button" class="btn btn-primary" onClick={toggleState}>{btnText}</button>
+{/* <button type="button" class="btn btn-primary" onClick={toggleState}>{btnText}</button> */}
 </div>
     </div>
   )
